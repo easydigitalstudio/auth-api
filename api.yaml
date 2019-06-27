@@ -8,12 +8,61 @@ consumes:
 produces:
   - application/json
 paths:
-  /:
+  /verify:
     get:
-      summary: hello world
+      summary: verify a user token
       tags:
-        - default
+        - Oauth
       parameters:
+        - in: header
+          name: authorization
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudG9pbmUuYWxlamFuZHJvQGdtYWlsLmNvbSIsImlkIjoiNWQxNGRhM2NiMjlmNjExMjhkNTA5M2Y3IiwiaWF0IjoxNTYxNjQ5NDk5fQ.lz4eko-nxBWN0VL8q0V6eMWqYACLqs8j8sN6rLMhU_c
+          required: true
+      responses:
+        "200":
+          description: Success
+  /register:
+    post:
+      summary: register an user
+      tags:
+        - User
+      parameters:
+        - name: body
+          description: request body
+          in: body
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+                example: antoine@easydigitalstudio.com
+              password:
+                type: string
+                example: CBASEEnfMhwlN3Uy4IkgthMw1_8gAQ
+      responses:
+        "200":
+          description: Success
+
+  /login:
+    post:
+      summary: login an user
+      tags:
+        - Oauth
+      parameters:
+        - name: body
+          description: request body
+          in: body
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+                example: antoine@easydigitalstudio.com
+              password:
+                type: string
+                example: CBASEEnfMhwlN3Uy4IkgthMw1_8gAQ
       responses:
         "200":
           description: Success

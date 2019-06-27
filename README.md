@@ -9,11 +9,11 @@ npm i
 ```
 cp .env.default .env
 ```
+Edit the `.env` file
 ## :fire: Start
 :exclamation: Run mongo before running the backend
 ```
 npm start
 ```
-Edit the `.env` file
 ## :boom: Test
 Access [http://localhost:3001/](http://localhost:3001/)
